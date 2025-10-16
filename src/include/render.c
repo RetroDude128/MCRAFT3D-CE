@@ -77,6 +77,7 @@ void render(uint8_t* buffer, fixed render_distance, fixed Mult, struct camera ca
     v = v_start;
     fixed uv_inc = fixed_mult((int_to_fixed(1<<render_pixel_shift)), scale);
     uint8_t r;
+    fixed deltatime;
     for (uint16_t ry = 0; ry < ry_end; ry++){
         y = ry<<render_pixel_shift;
         if ((y & 3) == 0){
@@ -145,7 +146,7 @@ void render(uint8_t* buffer, fixed render_distance, fixed Mult, struct camera ca
             }
             else {
                 iface.type = 0xF0;
-                skip_pixel = 1;
+                skip_pixel = 2;
             }
             if (iface.face & (FACE_TOP))
                 iface.type = 0b11000000 | (iface.type & 63);

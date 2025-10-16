@@ -156,7 +156,8 @@ struct face traverse_grid(struct ray ray, fixed max_distance){
                 scalarMax.z += scalarDelta.z;
             }
         }
-        uint16_t voxel_index = (current_voxel_x & 0b00011111) + ((current_voxel_y & 0b00011111)<<5) + ((current_voxel_z & 0b00011111)<<10);
+        //uint16_t voxel_index = (current_voxel_x & 0b00011111) + ((current_voxel_y & 0b00011111)<<5) + ((current_voxel_z & 0b00011111)<<10);
+        uint16_t voxel_index = get_voxel_index(current_voxel_x, current_voxel_y, current_voxel_z);
         if (grid[voxel_index] != 0 && scalar < max_distance){
             intersection_point.x = ray.origin.x + (fixed_mult(ray.d_vector.x, scalar));
             intersection_point.y = ray.origin.y + (fixed_mult(ray.d_vector.y, scalar));

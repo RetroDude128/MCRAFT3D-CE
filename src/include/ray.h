@@ -14,6 +14,8 @@
 #define grid_height 32
 #define grid_depth 32
 
+#define get_voxel_index(x,y,z) (x & 0b00011111) + ((y & 0b00011111)<<5) + ((z & 0b00011111)<<10)
+
 extern uint8_t grid[32768];
 struct vector3{
     fixed x;

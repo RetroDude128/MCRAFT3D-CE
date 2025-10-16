@@ -1,3 +1,4 @@
+#pragma once
 #include <stdint.h>
 #include "include/ray.h"
 #include "include/fixed.h"
